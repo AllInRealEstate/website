@@ -323,7 +323,7 @@ const Projects = () => {
                 }}
                 className="projects-swiper"
               >
-                {projects.map((project) => (
+                {projects?.map((project) => (
                   <SwiperSlide key={project.id}>
                     <div
                       className={`projects-card ${selectedProject?.id === project.id ? 'selected' : ''
