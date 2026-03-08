@@ -32,7 +32,7 @@ const ProjectsGrid = ({ projects, isLoading, onViewDetails }) => {
 
       {/* Table Body */}
       <div className="properties-table-body">
-        {projects?.map((project) => (
+        {projects.map((project) => (
           <ProjectCard
             key={project.id}
             project={project}
