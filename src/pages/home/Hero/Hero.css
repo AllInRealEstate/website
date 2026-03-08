@@ -1,0 +1,425 @@
+/* Hero Section - Full Screen with Video Background */
+.hero-section {
+  position: relative;
+  height: 111vh;
+  overflow: hidden;
+  background-color: #1A1410;
+}
+
+/* Video Container */
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Background Video */
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+
+
+  /* UPGRADE: Removed artificial filter for clearer video */
+  /* filter: brightness(1.1) contrast(1.15) saturate(1.2); */
+}
+
+/* UPGRADE: Cinematic Vignette (Clear Center, Dark Edges) */
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* This gradient makes the center TRANSPARENT so the video pops */
+  background: radial-gradient(circle at center,
+      rgba(0, 0, 0, 0) 0%,
+      /* Center = Clear */
+      rgba(0, 0, 0, 0.1) 40%,
+      rgba(26, 20, 16, 0.6) 100%
+      /* Edges = Dark for focus */
+    );
+  z-index: 2;
+  pointer-events: none;
+  /* Allows clicks to pass through */
+}
+
+/* Animated Pattern Overlay */
+.pattern-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  /* UPGRADE: Reduced slightly for cleaner look */
+  background-image: repeating-linear-gradient(45deg,
+      transparent,
+      transparent 10px,
+      rgba(212, 175, 55, 0.1) 10px,
+      rgba(212, 175, 55, 0.1) 20px);
+  background-size: 200% 200%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Content Layer */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+}
+
+/* Content Card - UPGRADE: GPU Acceleration added */
+.content-card {
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Safari Support */
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-height: 90vh;
+
+  /* Performance Hint */
+  will-change: transform, opacity;
+}
+
+/* Logo Section */
+.hero-logo-section {
+  margin-bottom: 2rem;
+}
+
+.hero-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .hero-logo-text {
+    font-size: 5rem;
+  }
+}
+
+.logo-all {
+  color: #D4AF37;
+  /* Gold */
+}
+
+.logo-in {
+  color: white !important;
+}
+
+.logo-divider {
+  width: 8rem;
+  height: 0.25rem;
+  background-color: #D4AF37;
+  margin: 0 auto;
+  border-radius: 9999px;
+}
+
+/* Tagline */
+.hero-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .hero-tagline {
+    font-size: 2.25rem;
+  }
+}
+
+/* Subtitle */
+.hero-subtitle {
+  color: #D1D5DB;
+  /* Light gray */
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Location */
+.hero-location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #D4AF37;
+  /* Gold */
+  margin-bottom: 2.5rem;
+  
+}
+
+.location-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.location-text {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  font-weight: 600 ;
+}
+
+/* CTA Buttons */
+.hero-buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .hero-buttons {
+    flex-direction: row;
+  }
+}
+
+.btn-primary {
+  /* 🛠 UPDATED: Increased font size and padding for better proportion */
+  padding: 1rem 2.25rem;
+  background: #D4AF37;
+  color: #1A1410;
+  border: 1px solid #D4AF37;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.btn-primary:hover {
+  background-color: #E8C547;
+  /* Lighter gold */
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+}
+
+.btn-secondary {
+  /* 🛠 UPDATED: Increased font size and padding for better proportion */
+  padding: 1rem 2.25rem;
+  background: transparent;
+  color: #FAF8F3;
+  border: 1px solid rgba(250, 248, 243, 0.3);
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  /* Increased from 1rem */
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+  background-color: #D4AF37;
+  /* Gold background on hover */
+  color: #1A1410;
+  /* Dark text on hover */
+}
+
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  /* UPDATED: Safer centering for potentially wide content */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 20;
+}
+
+.scroll-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.scroll-text {
+  color: #f9c004;
+  /* Gold */
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.1em;
+}
+
+.scroll-arrow {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #D4AF37;
+  /* Gold */
+}
+
+/* --- RESPONSIVE ADJUSTMENTS (Kept Exactly from Original) --- */
+
+@media (max-width: 640px) {
+  .content-card {
+    padding: 2rem 1.5rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-logo-text {
+    font-size: 3rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  /* Buttons smaller for laptop */
+  .btn-primary,
+  .btn-secondary {
+    min-width: 11rem;
+    height: 2.75rem;
+    font-size: 1.15rem;
+    padding: 0 1rem;
+  }
+}
+
+/* Tablet (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  .content-card {
+    width: 45vw;
+    max-width: 45vw;
+  }
+}
+
+/* Laptop (1024px - 1700px) */
+@media (min-width: 1024px) and (max-width: 1700px) {
+
+  /* Container slightly wider */
+  .content-card {
+    width: 38vw;
+    max-width: 38vw;
+    padding: 2rem 2rem;
+    transform: translateY(-1rem);
+  }
+
+  /* Simulate 90% zoom on the entire content wrapper */
+  .hero-content {
+    transform: scale(0.8);
+    transform-origin: center center;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .hero-buttons button {
+    width: 18rem;
+    height: 3.2rem;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  /* Logo next to text, smaller and cleaner */
+  .hero-logo-text img {
+    height: 2.5rem;
+  }
+
+  .hero-logo-text {
+    flex-direction: row !important;
+    gap: 1rem !important;
+  }
+
+  .hero-logo-text span {
+    line-height: 1;
+  }
+
+  /* Reduce spacing */
+  .hero-logo-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .logo-divider {
+    width: 6rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Reduce tagline */
+  .hero-tagline {
+    font-size: 1.65rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .hero-location {
+    margin-bottom: 1.8rem;
+  }
+
+  /* Buttons smaller */
+  .btn-primary,
+  .btn-secondary {
+    min-width: 14rem;
+    height: 3rem;
+    font-size: 1.15rem;
+    padding: 0;
+  }
+}
+
+/* Large desktop (>1700px) */
+@media (min-width: 1700px) {
+  .content-card {
+    width: 35vw;
+    max-width: 35vw;
+  }
+}

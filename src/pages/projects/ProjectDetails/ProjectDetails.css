@@ -1,0 +1,432 @@
+/* src/pages/projects/ProjectDetails/ProjectDetails.css */
+
+/* ==================== Main Container ==================== */
+.project-details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== Hero Image Section ==================== */
+.project-details-hero-image {
+  height: 35%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.project-details-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-details-hero-image:hover img {
+  transform: scale(1.05);
+}
+
+.image-gallery-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(26, 20, 16, 0.85);
+  backdrop-filter: blur(10px);
+  color: #FAF8F3;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-gallery-badge svg {
+  color: #D4AF37;
+}
+
+/* ==================== Info Grid Layout ==================== */
+.project-details-info-grid {
+  height: 65%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Prettier scrollbar styling */
+.project-details-info-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-details-info-grid::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.project-details-info-grid::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 4px;
+}
+
+.project-details-info-grid::-webkit-scrollbar-thumb:hover {
+  background: #E8C547;
+}
+
+/* Firefox scrollbar */
+.project-details-info-grid {
+  scrollbar-width: thin;
+  scrollbar-color: #D4AF37 rgba(0, 0, 0, 0.05);
+}
+
+.info-column-left,
+.info-column-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 0;
+}
+
+/* ==================== Header Section ==================== */
+.details-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.details-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.25rem 0.75rem;
+  background: #D4AF37;
+  color: white;
+  border-radius: 0.375rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.details-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  color: #1A1410;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.details-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.details-location svg {
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+/* ==================== Price & Specs ==================== */
+.details-price {
+  margin: 0.5rem 0;
+}
+
+.price-value {
+  font-family: 'Cinzel', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #D4AF37;
+  display: block;
+}
+
+.details-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+}
+
+.spec-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.spec-chip svg {
+  color: #D4AF37;
+}
+
+/* ==================== Type Badge ==================== */
+.details-type {
+  display: flex;
+  align-items: center;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid #D4AF37;
+  color: #D4AF37;
+  border-radius: 0.375rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ==================== Dividers ==================== */
+.details-divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0.5rem 0;
+}
+
+/* ==================== Short Description ==================== */
+.details-short-desc {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* ==================== Description Section ==================== */
+.details-description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.details-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: #1A1410;
+  margin: 0;
+  font-weight: 600;
+}
+
+.details-text {
+  color: #6b7280;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ==================== Features Section ==================== */
+.details-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.features-list-two-column {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.feature-item svg {
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+/* ==================== Contact Button ==================== */
+.contact-btn-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #D4AF37;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: auto;
+}
+
+.contact-btn-full:hover {
+  background: #E8C547;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.contact-btn-full svg {
+  flex-shrink: 0;
+}
+
+/* ==================== Empty State ==================== */
+.project-details-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 400px;
+  color: #6b7280;
+  font-size: 1.125rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* ==================== Responsive Design ==================== */
+
+/* Tablet Portrait & Below */
+@media (max-width: 767px) {
+.project-details-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    /* FORCE SCROLL: Ensure flex takes over and scrolling is enabled */
+    flex: 1; 
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  .project-details-hero-image {
+    /* FIX: Reduce image height on small screens to give text room */
+    height: 250px; /* Fixed height is safer than % on small mobile */
+    flex-shrink: 0; /* Prevent image from squashing */
+  }
+
+  .details-title {
+    font-size: 1.5rem;
+  }
+
+  .price-value {
+    font-size: 1.5rem;
+  }
+
+  .features-list-two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile 
+@media (max-width: 639px) {
+  .project-details-info-grid {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .details-title {
+    font-size: 1.25rem;
+  }
+
+  .details-section-title {
+    font-size: 1.125rem;
+  }
+
+  .details-specs {
+    gap: 0.5rem;
+  }
+
+  .spec-chip {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .contact-btn-full {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  .image-gallery-badge {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+*/
+
+@media (max-width: 639px) {
+  /* 1. UNLOCK CONTAINER: Allow the card to grow as tall as needed */
+  .project-details {
+    height: auto !important;      /* Stop forcing screen height */
+    overflow: visible !important; /* Remove clipping */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 2. UNLOCK CONTENT: Stack vertically and allow growth */
+  .project-details-info-grid {
+    height: auto !important;      /* Let text determine height */
+    overflow: visible !important; /* Disable internal scroll */
+    flex: none;                   /* Disable flex sizing */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    padding-bottom: 40px;         /* Buffer for bottom of screen */
+  }
+
+  /* 3. SET IMAGE: Fixed height ensures it doesn't vanish or take over */
+  .project-details-hero-image {
+    height: 220px;
+    flex-shrink: 0;
+  }
+
+  /* --- Existing Styling Adjustments --- */
+  .details-title {
+    font-size: 1.25rem;
+  }
+
+  .details-section-title {
+    font-size: 1.125rem;
+  }
+
+  .details-specs {
+    gap: 0.5rem;
+  }
+
+  .spec-chip {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .contact-btn-full {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8rem;
+    margin-top: 1rem; /* Add space above button */
+  }
+
+  .image-gallery-badge {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}

@@ -1,0 +1,136 @@
+/* src/pages/properties-gallery/components/PropertiesFilters.css */
+
+.properties-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.filter-control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-control label {
+  font-size: 0.875rem;
+  color: #1A1410;
+  font-weight: 600;
+}
+
+.filter-control select,
+.filter-control input {
+  padding: 0.75rem;
+  background: #FAF8F3;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 6px;
+  color: #1A1410;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.filter-control select:focus,
+.filter-control input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+}
+
+.range-control .range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.range-control input {
+  flex: 1;
+  min-width: 0;
+}
+
+.range-separator {
+  color: #6b7280;
+}
+
+.range-unit {
+  font-size: 0.875rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+
+/* ================================================
+   FILTER ACTIONS
+   ================================================ */
+.filters-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.apply-btn,
+.clear-btn {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.apply-btn {
+  background: #D4AF37;
+  color: white;
+}
+
+.apply-btn:hover {
+  background: #E8C547;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.clear-btn {
+  background: transparent;
+  color: #6b7280;
+  border: 2px solid #6b7280;
+}
+
+.clear-btn:hover {
+  color: #1A1410;
+  border-color: #1A1410;
+}
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 1399px) {
+  .filters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1023px) {
+  .filters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filters-actions {
+    flex-direction: column;
+  }
+  
+  .apply-btn,
+  .clear-btn {
+    width: 100%;
+  }
+}

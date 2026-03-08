@@ -1,0 +1,142 @@
+/* src/pages/properties-gallery/components/ProjectsGrid.css */
+
+.properties-table-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+/* ================================================
+   TABLE HEADER - PREMIUM DESIGN
+   ================================================ */
+.properties-table-header {
+  display: grid;
+  grid-template-columns: 140px 2fr 1.8fr 140px 80px 80px 100px 140px 180px;
+  gap: 2rem;
+  align-items: center;
+  
+  padding: 1.5rem 2.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #2C2416 0%, #1a1410 100%);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.properties-table-header span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.properties-table-header span:nth-child(1) {
+  justify-content: center;
+}
+
+.properties-table-header span:nth-child(4),
+.properties-table-header span:nth-child(5),
+.properties-table-header span:nth-child(6),
+.properties-table-header span:nth-child(7),
+.properties-table-header span:nth-child(8),
+.properties-table-header span:nth-child(9) {
+  justify-content: center;
+}
+
+/* ================================================
+   TABLE BODY
+   ================================================ */
+.properties-table-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ================================================
+   LOADING STATE
+   ================================================ */
+.properties-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  gap: 1.5rem;
+}
+
+.properties-loading .spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(212, 175, 55, 0.1);
+  border-top-color: #D4AF37;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.properties-loading p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: #6b7280;
+}
+
+/* ================================================
+   RESPONSIVE - LAPTOP
+   ================================================ */
+@media (max-width: 1440px) {
+  .properties-table-container {
+    padding: 0 1.5rem 4rem;
+  }
+
+  .properties-table-header {
+    grid-template-columns: 130px 2fr 1.6fr 130px 75px 75px 95px 130px 170px;
+    gap: 1.5rem;
+    padding: 1.25rem 2rem;
+  }
+}
+
+/* ================================================
+   RESPONSIVE - TABLET
+   ================================================ */
+@media (max-width: 1200px) {
+  .properties-table-header {
+    grid-template-columns: 120px 2fr 1.5fr 120px 70px 70px 90px 120px 160px;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* ================================================
+   RESPONSIVE - TABLET SMALL
+   ================================================ */
+@media (max-width: 1024px) {
+  .properties-table-header {
+    display: none;
+  }
+
+  .properties-table-body {
+    gap: 1.5rem;
+  }
+}
+
+/* ================================================
+   RESPONSIVE - MOBILE
+   ================================================ */
+@media (max-width: 640px) {
+  .properties-table-container {
+    padding: 0 1rem 3rem;
+  }
+
+  .properties-table-body {
+    gap: 1.25rem;
+  }
+}

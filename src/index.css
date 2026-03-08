@@ -1,0 +1,1165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #FAF8F3;
+  color: #2C2416;
+  overflow-x: hidden;
+}
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}
+
+[lang="he"] body {
+  font-family: 'Heebo', sans-serif;
+}
+
+[lang="ar"] body {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* ==============================================
+   ✅ ACCESSIBILITY: FONT SCALING
+   ============================================== */
+
+/* ✅ Scale root font-size when accessibility is enabled */
+html.a11y-font-medium {
+  font-size: 19.2px !important;
+  /* 16px * 1.2 = +20% */
+}
+
+html.a11y-font-large {
+  font-size: 22.4px !important;
+  /* 16px * 1.4 = +40% */
+}
+
+/* ==============================================
+   ✅ UNIVERSAL COMPONENT SCALING
+   FORCES ALL COMPONENTS TO USE REM WHEN ENABLED
+   USES DESKTOP SIZES (FROM MEDIA QUERIES)
+   ============================================== */
+
+/* ===== HERO SECTION ===== */
+/* ===== HERO CONTAINER DYNAMIC SCALING ===== */
+/* âœ… Container grows to fit content, never exceeds screen */
+
+/* BASE: Make container dynamic for accessibility modes */
+/* BASE: Dynamic width, flexible height */
+html.a11y-font-medium .content-card {
+  width: auto !important;
+  max-width: 95vw !important;
+  max-height: none !important;
+  /* âœ… Remove height restriction for medium */
+  height: auto !important;
+  padding: 3rem 2.5rem !important;
+  min-width: fit-content !important;
+}
+
+html.a11y-font-large .content-card {
+  width: auto !important;
+  max-width: 95vw !important;
+  max-height: none !important;
+  /* âœ… Remove height restriction for large */
+  height: auto !important;
+  padding: 3.5rem 3rem !important;
+  min-width: fit-content !important;
+
+}
+
+/* MOBILE (<640px) - Full width with padding */
+@media (max-width: 640px) {
+
+  html.a11y-font-medium .content-card,
+  html.a11y-font-large .content-card {
+    width: 95vw !important;
+    padding: 2.5rem 2rem !important;
+  }
+}
+
+/* MOBILE (<640px) - Special handling */
+@media (max-width: 640px) {
+  html.a11y-font-medium .content-card {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    padding: 2rem 1.5rem !important;
+    min-width: auto !important;
+  }
+
+  html.a11y-font-large .content-card {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    padding: 2.5rem 1.5rem !important;
+    min-width: auto !important;
+  }
+
+  /* âœ… Stack buttons vertically on mobile */
+  html.a11y-font-medium .hero-buttons,
+  html.a11y-font-large .hero-buttons {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 1rem !important;
+  }
+
+  /* âœ… Buttons full width on mobile */
+  html.a11y-font-medium .btn-primary,
+  html.a11y-font-medium .btn-secondary,
+  html.a11y-font-large .btn-primary,
+  html.a11y-font-large .btn-secondary {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* âœ… Reduce mobile spacing */
+  html.a11y-font-medium .hero-logo-section,
+  html.a11y-font-large .hero-logo-section {
+    margin-bottom: 1.5rem !important;
+  }
+
+  html.a11y-font-medium .hero-subtitle,
+  html.a11y-font-large .hero-subtitle {
+    margin-bottom: 1.5rem !important;
+  }
+
+  html.a11y-font-medium .hero-location,
+  html.a11y-font-large .hero-location {
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* TABLET (640px - 1024px) */
+@media (min-width: 640px) and (max-width: 1024px) {
+  html.a11y-font-medium .content-card {
+    min-width: 50vw !important;
+  }
+
+  html.a11y-font-large .content-card {
+    min-width: 55vw !important;
+  }
+}
+
+/* LAPTOP (1024px - 1700px) */
+@media (min-width: 1024px) and (max-width: 1700px) {
+  html.a11y-font-medium .content-card {
+    min-width: 42vw !important;
+  }
+
+  html.a11y-font-large .content-card {
+    min-width: 48vw !important;
+  }
+}
+
+/* LARGE DESKTOP (>1700px) */
+@media (min-width: 1700px) {
+  html.a11y-font-medium .content-card {
+    min-width: 38vw !important;
+  }
+
+  html.a11y-font-large .content-card {
+    min-width: 44vw !important;
+  }
+}
+
+/* âœ… Increased internal spacing (Desktop/Tablet only) */
+@media (min-width: 640px) {
+
+  html.a11y-font-medium .hero-logo-section,
+  html.a11y-font-large .hero-logo-section {
+    margin-bottom: 2.5rem !important;
+  }
+
+  html.a11y-font-medium .hero-subtitle,
+  html.a11y-font-large .hero-subtitle {
+    margin-bottom: 2.5rem !important;
+  }
+
+  html.a11y-font-medium .hero-location,
+  html.a11y-font-large .hero-location {
+    margin-bottom: 3rem !important;
+  }
+
+  html.a11y-font-medium .hero-buttons,
+  html.a11y-font-large .hero-buttons {
+    gap: 1.5rem !important;
+    padding-top: 2rem !important;
+  }
+}
+
+/* âœ… Flexible buttons (Desktop/Tablet) */
+@media (min-width: 640px) {
+
+  html.a11y-font-medium .btn-primary,
+  html.a11y-font-medium .btn-secondary,
+  html.a11y-font-large .btn-primary,
+  html.a11y-font-large .btn-secondary {
+    height: auto !important;
+    min-height: 3.5rem !important;
+    padding: 1rem 1.5rem !important;
+    white-space: normal !important;
+    line-height: 1.5 !important;
+    min-width: auto !important;
+  }
+}
+
+/* LAPTOP (1024px - 1700px) - Dynamic with min-width */
+@media (min-width: 1024px) and (max-width: 1700px) {
+
+  html.a11y-font-medium .content-card,
+  html.a11y-font-large .content-card {
+    min-width: 40vw !important;
+    /* Minimum width for design */
+  }
+}
+
+/* LARGE DESKTOP (>1700px) - Dynamic with min-width */
+@media (min-width: 1700px) {
+
+  html.a11y-font-medium .content-card,
+  html.a11y-font-large .content-card {
+    min-width: 38vw !important;
+    /* Minimum width for design */
+  }
+}
+
+/* âœ… Increased internal spacing */
+html.a11y-font-medium .hero-logo-section,
+html.a11y-font-large .hero-logo-section {
+  margin-bottom: 2.5rem !important;
+}
+
+html.a11y-font-medium .hero-subtitle,
+html.a11y-font-large .hero-subtitle {
+  margin-bottom: 2.5rem !important;
+}
+
+html.a11y-font-medium .hero-location,
+html.a11y-font-large .hero-location {
+  margin-bottom: 3rem !important;
+}
+
+html.a11y-font-medium .hero-buttons,
+html.a11y-font-large .hero-buttons {
+  gap: 1.5rem !important;
+  padding-top: 2rem !important;
+}
+
+/* âœ… Flexible buttons - never overflow */
+html.a11y-font-medium .btn-primary,
+html.a11y-font-medium .btn-secondary,
+html.a11y-font-large .btn-primary,
+html.a11y-font-large .btn-secondary {
+  height: auto !important;
+  min-height: 3.5rem !important;
+  padding: 1rem 1.5rem !important;
+  white-space: normal !important;
+  line-height: 1.5 !important;
+  min-width: auto !important;
+  /* Remove fixed min-width */
+}
+
+/* ===== ABOUT SECTION ===== */
+html.a11y-font-medium .about-title,
+html.a11y-font-large .about-title {
+  font-size: 3.75rem !important;
+  /* Desktop size */
+}
+
+html.a11y-font-medium .about-paragraph,
+html.a11y-font-large .about-paragraph {
+  font-size: 1.125rem !important;
+}
+
+html.a11y-font-medium .about-team-title,
+html.a11y-font-large .about-team-title {
+  font-size: 2.25rem !important;
+}
+
+html.a11y-font-medium .team-name,
+html.a11y-font-large .team-name {
+  font-size: 1.875rem !important;
+}
+
+html.a11y-font-medium .team-title,
+html.a11y-font-large .team-title {
+  font-size: 0.875rem !important;
+}
+
+html.a11y-font-medium .team-quote,
+html.a11y-font-large .team-quote {
+  font-size: 1.125rem !important;
+}
+
+html.a11y-font-medium .team-bio,
+html.a11y-font-large .team-bio {
+  font-size: 1rem !important;
+}
+
+html.a11y-font-medium .meet-team-button,
+html.a11y-font-large .meet-team-button {
+  font-size: 1.125rem !important;
+}
+
+html.a11y-font-medium .about-approach-title,
+html.a11y-font-large .about-approach-title {
+  font-size: 2.25rem !important;
+}
+
+html.a11y-font-medium .approach-card-title,
+html.a11y-font-large .approach-card-title {
+  font-size: 1.5rem !important;
+}
+
+html.a11y-font-medium .approach-card-desc,
+html.a11y-font-large .approach-card-desc {
+  font-size: 0.875rem !important;
+}
+
+/* ===== PROJECTS/PORTFOLIO SECTION ===== */
+html.a11y-font-medium .portfolio-title,
+html.a11y-font-large .portfolio-title {
+  font-size: 3.75rem !important;
+  /* Desktop size */
+}
+
+html.a11y-font-medium .filter-button,
+html.a11y-font-large .filter-button {
+  font-size: 0.875rem !important;
+}
+
+html.a11y-font-medium .property-title,
+html.a11y-font-large .property-title {
+  font-size: 1.25rem !important;
+}
+
+html.a11y-font-medium .property-location,
+html.a11y-font-large .property-location {
+  font-size: 0.875rem !important;
+}
+
+html.a11y-font-medium .property-price,
+html.a11y-font-medium .property-price>*,
+html.a11y-font-large .property-price,
+html.a11y-font-large .property-price>* {
+  font-size: 1.125rem !important;
+}
+
+html.a11y-font-medium .property-badge,
+html.a11y-font-large .property-badge {
+  font-size: 0.75rem !important;
+}
+
+html.a11y-font-medium .property-view-btn,
+html.a11y-font-large .property-view-btn {
+  font-size: 0.875rem !important;
+}
+
+html.a11y-font-medium .view-all-projects-btn,
+html.a11y-font-large .view-all-projects-btn {
+  font-size: 1rem !important;
+}
+
+/* ===== PORTFOLIO FILTER BUTTONS SCALING ===== */
+/* ✅ Handle filter button overflow at larger font sizes */
+
+/* DESKTOP/TABLET: Allow buttons to wrap to multiple rows */
+@media (min-width: 641px) {
+
+  html.a11y-font-medium .portfolio-filters,
+  html.a11y-font-large .portfolio-filters {
+    flex-wrap: wrap !important;
+    /* Allow wrapping to prevent overflow */
+    gap: 1.25rem !important;
+    /* Increased gap for readability */
+  }
+
+  html.a11y-font-medium .filter-button {
+    width: 160px !important;
+    /* +14% wider for +20% fonts */
+    min-width: 160px !important;
+    padding: 0.9rem 2rem !important;
+  }
+
+  html.a11y-font-large .filter-button {
+    width: 180px !important;
+    /* +29% wider for +40% fonts */
+    min-width: 180px !important;
+    padding: 1rem 2rem !important;
+  }
+}
+
+/* MOBILE: Hide buttons, show dropdown for accessibility */
+@media (max-width: 640px) {
+
+  html.a11y-font-medium .filter-button,
+  html.a11y-font-large .filter-button {
+    display: none !important;
+    /*  Hide buttons on mobile */
+  }
+
+  html.a11y-font-medium .mobile-filter-select,
+  html.a11y-font-large .mobile-filter-select {
+    display: block !important;
+    /*  Show dropdown on mobile */
+    margin: 0 auto;
+    /* Center it */
+    font-size: 1.1rem !important;
+    /* Bigger for accessibility */
+    padding: 1rem 1.25rem !important;
+    max-width: 90vw !important;
+    /* Fit mobile screen */
+  }
+}
+
+/* ===== SERVICES SECTION ===== */
+html.a11y-font-medium .services-title,
+html.a11y-font-large .services-title {
+  font-size: 3.75rem !important;
+  /* Desktop size */
+}
+
+html.a11y-font-medium .services-subtitle,
+html.a11y-font-large .services-subtitle {
+  font-size: 1.125rem !important;
+}
+
+html.a11y-font-medium .service-title,
+html.a11y-font-large .service-title {
+  font-size: 1.25rem !important;
+}
+
+html.a11y-font-medium .service-desc,
+html.a11y-font-large .service-desc {
+  font-size: 0.875rem !important;
+}
+
+html.a11y-font-medium .explore-courses-btn,
+html.a11y-font-large .explore-courses-btn {
+  font-size: 1.125rem !important;
+}
+
+/* ===== TESTIMONIALS SECTION ===== */
+html.a11y-font-medium .testimonials-title,
+html.a11y-font-large .testimonials-title {
+  font-size: 3.75rem !important;
+  /* Desktop size */
+}
+
+/* ✅ FIXED: Use DESKTOP size (6rem) + target children (span inside) */
+html.a11y-font-medium .big-stat-number,
+html.a11y-font-medium .big-stat-number>*,
+html.a11y-font-large .big-stat-number,
+html.a11y-font-large .big-stat-number>* {
+  font-size: 6rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .big-stat-desc,
+html.a11y-font-large .big-stat-desc {
+  font-size: 1.25rem !important;
+}
+
+html.a11y-font-medium .stat-number,
+html.a11y-font-medium .stat-number>*,
+html.a11y-font-large .stat-number,
+html.a11y-font-large .stat-number>* {
+  font-size: 3rem !important;
+}
+
+html.a11y-font-medium .stat-label,
+html.a11y-font-large .stat-label {
+  font-size: 0.875rem !important;
+}
+
+/* ✅ FIXED: Use DESKTOP size (1.875rem) + target children */
+html.a11y-font-medium .testimonial-text,
+html.a11y-font-medium .testimonial-text>*,
+html.a11y-font-large .testimonial-text,
+html.a11y-font-large .testimonial-text>* {
+  font-size: 1.875rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .author-name,
+html.a11y-font-large .author-name {
+  font-size: 1.125rem !important;
+}
+
+html.a11y-font-medium .author-location,
+html.a11y-font-large .author-location {
+  font-size: 0.875rem !important;
+}
+
+/* ===== CONTACT SECTION ===== */
+html.a11y-font-medium .contact-title,
+html.a11y-font-large .contact-title {
+  font-size: 3.75rem !important;
+  /* Desktop size */
+}
+
+html.a11y-font-medium .contact-subtitle,
+html.a11y-font-large .contact-subtitle {
+  font-size: 1.25rem !important;
+}
+
+html.a11y-font-medium .form-input,
+html.a11y-font-medium .form-textarea,
+html.a11y-font-medium .form-select,
+html.a11y-font-large .form-input,
+html.a11y-font-large .form-textarea,
+html.a11y-font-large .form-select {
+  font-size: 1rem !important;
+}
+
+html.a11y-font-medium .form-submit-btn,
+html.a11y-font-large .form-submit-btn {
+  font-size: 1.125rem !important;
+}
+
+html.a11y-font-medium .info-card-title,
+html.a11y-font-large .info-card-title {
+  font-size: 1.25rem !important;
+}
+
+html.a11y-font-medium .info-text,
+html.a11y-font-large .info-text {
+  font-size: 0.875rem !important;
+}
+
+html.a11y-font-medium .privacy-text,
+html.a11y-font-large .privacy-text {
+  font-size: 0.9rem !important;
+}
+
+/* ===== TEAM PAGE (FULL PAGE) ===== */
+/* ✅ FIXED: Added missing team page classes */
+html.a11y-font-medium .team-page-title,
+html.a11y-font-large .team-page-title {
+  font-size: 3.75rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .team-page-subtitle,
+html.a11y-font-large .team-page-subtitle {
+  font-size: 1.125rem !important;
+}
+
+html.a11y-font-medium .license-badge,
+html.a11y-font-large .license-badge {
+  font-size: 0.75rem !important;
+}
+
+/* ===== COURSES PAGE (FULL PAGE) ===== */
+/* ✅ FIXED: Added missing courses page classes */
+html.a11y-font-medium .courses-title,
+html.a11y-font-large .courses-title {
+  font-size: 3.5rem !important;
+  /* Desktop size (992px)! */
+}
+
+html.a11y-font-medium .courses-subtitle,
+html.a11y-font-large .courses-subtitle {
+  font-size: 1.25rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .course-level,
+html.a11y-font-large .course-level {
+  font-size: 0.7rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .course-duration,
+html.a11y-font-large .course-duration {
+  font-size: 0.875rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .course-title-text,
+html.a11y-font-large .course-title-text {
+  font-size: 1.75rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .course-description,
+html.a11y-font-large .course-description {
+  font-size: 0.9375rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .course-instructor,
+html.a11y-font-large .course-instructor {
+  font-size: 0.875rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .course-price,
+html.a11y-font-medium .course-price>*,
+html.a11y-font-large .course-price,
+html.a11y-font-large .course-price>* {
+  font-size: 1.5rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .course-badge,
+html.a11y-font-large .course-badge {
+  font-size: 0.75rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .empty-state-card h3,
+html.a11y-font-large .empty-state-card h3 {
+  font-size: 2rem !important;
+  /* Desktop size! */
+}
+
+html.a11y-font-medium .empty-state-card p,
+html.a11y-font-large .empty-state-card p {
+  font-size: 1.125rem !important;
+  /* Desktop size! */
+}
+
+/* ===== GENERIC ELEMENTS (Fallback) ===== */
+html.a11y-font-medium h1,
+html.a11y-font-large h1 {
+  font-size: 2.5rem !important;
+}
+
+html.a11y-font-medium h2,
+html.a11y-font-large h2 {
+  font-size: 2rem !important;
+}
+
+html.a11y-font-medium h3,
+html.a11y-font-large h3 {
+  font-size: 1.75rem !important;
+}
+
+html.a11y-font-medium h4,
+html.a11y-font-large h4 {
+  font-size: 1.5rem !important;
+}
+
+html.a11y-font-medium h5,
+html.a11y-font-large h5 {
+  font-size: 1.25rem !important;
+}
+
+html.a11y-font-medium h6,
+html.a11y-font-large h6 {
+  font-size: 1.1rem !important;
+}
+
+/* Exclude number/stat elements from generic scaling */
+html.a11y-font-medium span:not(.big-stat-number *):not(.stat-number *):not(.property-price *):not(.course-price *),
+html.a11y-font-medium div:not(.big-stat-number *):not(.stat-number *):not(.property-price *):not(.course-price *),
+html.a11y-font-large span:not(.big-stat-number *):not(.stat-number *):not(.property-price *):not(.course-price *),
+html.a11y-font-large div:not(.big-stat-number *):not(.stat-number *):not(.property-price *):not(.course-price *) {
+  font-size: 1rem !important;
+}
+
+html.a11y-font-medium p,
+html.a11y-font-medium a,
+html.a11y-font-medium li,
+html.a11y-font-medium td,
+html.a11y-font-medium th,
+html.a11y-font-large p,
+html.a11y-font-large a,
+html.a11y-font-large li,
+html.a11y-font-large td,
+html.a11y-font-large th {
+  font-size: 1rem !important;
+}
+
+html.a11y-font-medium small,
+html.a11y-font-medium .text-sm,
+html.a11y-font-large small,
+html.a11y-font-large .text-sm {
+  font-size: 0.875rem !important;
+}
+
+html.a11y-font-medium .text-xs,
+html.a11y-font-large .text-xs {
+  font-size: 0.75rem !important;
+}
+
+html.a11y-font-medium .text-lg,
+html.a11y-font-large .text-lg {
+  font-size: 1.125rem !important;
+}
+
+html.a11y-font-medium .text-xl,
+html.a11y-font-large .text-xl {
+  font-size: 1.25rem !important;
+}
+
+html.a11y-font-medium .text-2xl,
+html.a11y-font-large .text-2xl {
+  font-size: 1.5rem !important;
+}
+
+html.a11y-font-medium .text-3xl,
+html.a11y-font-large .text-3xl {
+  font-size: 1.875rem !important;
+}
+
+html.a11y-font-medium .text-4xl,
+html.a11y-font-large .text-4xl {
+  font-size: 2.25rem !important;
+}
+
+html.a11y-font-medium .text-5xl,
+html.a11y-font-large .text-5xl {
+  font-size: 3rem !important;
+}
+
+html.a11y-font-medium .text-6xl,
+html.a11y-font-large .text-6xl {
+  font-size: 3.75rem !important;
+}
+
+/* ==============================================
+   HIGH CONTRAST MODE
+   ============================================== */
+
+.high-contrast,
+.high-contrast * {
+  color: #000000 !important;
+}
+
+.high-contrast body,
+.high-contrast body *,
+.high-contrast section,
+.high-contrast section *,
+.high-contrast div,
+.high-contrast div *,
+.high-contrast main,
+.high-contrast main * {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast h4,
+.high-contrast h5,
+.high-contrast h6,
+.high-contrast p,
+.high-contrast span,
+.high-contrast div,
+.high-contrast li,
+.high-contrast label,
+.high-contrast td,
+.high-contrast th,
+.high-contrast strong,
+.high-contrast em,
+.high-contrast i,
+.high-contrast b {
+  color: #000000 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.high-contrast a,
+.high-contrast a *,
+.high-contrast [href] {
+  color: #0000ee !important;
+  text-decoration: underline !important;
+  background: transparent !important;
+}
+
+.high-contrast a:visited {
+  color: #551a8b !important;
+}
+
+.high-contrast a:hover,
+.high-contrast a:focus {
+  color: #0000ee !important;
+  background: transparent !important;
+}
+
+.high-contrast button,
+.high-contrast button *,
+.high-contrast .btn,
+.high-contrast .btn *,
+.high-contrast .btn-primary,
+.high-contrast .btn-secondary,
+.high-contrast [role="button"],
+.high-contrast input[type="submit"],
+.high-contrast input[type="button"] {
+  background-color: #000000 !important;
+  background: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border: 2px solid #000000 !important;
+  box-shadow: none !important;
+}
+
+.high-contrast button:hover,
+.high-contrast .btn:hover {
+  background-color: #333333 !important;
+  background: #333333 !important;
+  border-color: #333333 !important;
+}
+
+.high-contrast .bg-luxury-gold,
+.high-contrast .bg-luxury-gold *,
+.high-contrast .text-luxury-gold,
+.high-contrast .text-luxury-gold *,
+.high-contrast .border-luxury-gold,
+.high-contrast [class*="gold"],
+.high-contrast [class*="gold"] *,
+.high-contrast [class*="luxury"],
+.high-contrast [class*="luxury"] * {
+  background-color: #000000 !important;
+  background: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+  border-color: #000000 !important;
+}
+
+.high-contrast .gold-gradient,
+.high-contrast [class*="gradient"],
+.high-contrast [style*="gradient"] {
+  background: none !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  -webkit-text-fill-color: #000000 !important;
+  color: #000000 !important;
+}
+
+.high-contrast .hero,
+.high-contrast .hero *,
+.high-contrast [class*="hero"],
+.high-contrast [class*="hero"] *,
+.high-contrast header,
+.high-contrast header * {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+}
+
+.high-contrast .card,
+.high-contrast .card *,
+.high-contrast .card-bg,
+.high-contrast [class*="card"],
+.high-contrast [class*="card"] * {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.high-contrast nav,
+.high-contrast nav *,
+.high-contrast .navbar,
+.high-contrast .navbar *,
+.high-contrast [role="navigation"],
+.high-contrast [role="navigation"] * {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  background-image: none !important;
+  border-bottom: 2px solid #000000 !important;
+}
+
+.high-contrast nav a,
+.high-contrast .navbar a {
+  color: #0000ee !important;
+}
+
+.high-contrast input,
+.high-contrast input *,
+.high-contrast textarea,
+.high-contrast textarea *,
+.high-contrast select,
+.high-contrast select * {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+.high-contrast input:focus,
+.high-contrast textarea:focus,
+.high-contrast select:focus {
+  outline: 3px solid #000000 !important;
+  border-color: #000000 !important;
+  box-shadow: none !important;
+}
+
+.high-contrast [class*="bg-"],
+.high-contrast [class*="bg-"] * {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  background-image: none !important;
+}
+
+.high-contrast [class*="text-"]:not([class*="text-spacing"]) {
+  color: #000000 !important;
+}
+
+.high-contrast footer,
+.high-contrast footer * {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-top: 2px solid #000000 !important;
+}
+
+.high-contrast *,
+.high-contrast *::before,
+.high-contrast *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+.high-contrast img {
+  border: 1px solid #000000 !important;
+  filter: none !important;
+}
+
+.high-contrast svg,
+.high-contrast svg * {
+  fill: #000000 !important;
+  stroke: #000000 !important;
+}
+
+.high-contrast ::-webkit-scrollbar-thumb {
+  background: #000000 !important;
+}
+
+.high-contrast ::-webkit-scrollbar-track {
+  background: #ffffff !important;
+}
+
+.high-contrast * {
+  border-color: #000000 !important;
+}
+
+.high-contrast a:not([class*="btn"]) {
+  color: #0000ee !important;
+  background: transparent !important;
+  text-decoration: underline !important;
+}
+
+.high-contrast table,
+.high-contrast table * {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.high-contrast table th {
+  background-color: #f0f0f0 !important;
+  font-weight: bold !important;
+}
+
+.high-contrast [class*="modal"],
+.high-contrast [class*="overlay"],
+.high-contrast [class*="popup"] {
+  background-color: #ffffff !important;
+  border: 2px solid #000000 !important;
+}
+
+.high-contrast video,
+.high-contrast iframe {
+  border: 2px solid #000000 !important;
+}
+
+/* ==============================================
+   UNDERLINE LINKS
+   ============================================== */
+.underline-links a {
+  text-decoration: underline !important;
+}
+
+.underline-links button:not(.a11y-toggle):not(.close-btn) {
+  text-decoration: underline !important;
+}
+
+/* ==============================================
+   ✅ FIXED TEXT SPACING - ONLY READABLE TEXT
+   ============================================== */
+.text-spacing p,
+.text-spacing li,
+.text-spacing h1,
+.text-spacing h2,
+.text-spacing h3,
+.text-spacing h4,
+.text-spacing h5,
+.text-spacing h6,
+.text-spacing label,
+.text-spacing td,
+.text-spacing th {
+  line-height: 1.8 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+
+.text-spacing p,
+.text-spacing li {
+  margin-bottom: 1.5em !important;
+}
+
+/* ==============================================
+   ✅ STOP ANIMATIONS - COMPREHENSIVE
+   ============================================== */
+.no-animations *,
+.no-animations *::before,
+.no-animations *::after {
+  animation: none !important;
+  animation-duration: 0.01ms !important;
+  animation-delay: 0s !important;
+  animation-iteration-count: 1 !important;
+  transition: none !important;
+  transition-duration: 0.01ms !important;
+  transition-delay: 0s !important;
+  scroll-behavior: auto !important;
+}
+
+/* ✅ Disable hover/active transforms */
+.no-animations *:hover,
+.no-animations *:active,
+.no-animations *:focus {
+  transform: none !important;
+}
+
+/* ✅ Disable card hover effects */
+.no-animations .card-hover:hover {
+  transform: none !important;
+  box-shadow: inherit !important;
+}
+
+/* ✅ Disable motion components */
+.no-animations [data-framer-motion],
+.no-animations .motion-div,
+.no-animations [class*="animate"] {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* ==============================================
+   LOGO SIZE
+   ============================================== */
+.logo,
+.logo img,
+nav .logo,
+nav .logo img,
+header .logo,
+header .logo img {
+  width: 60px !important;
+  height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  object-fit: contain;
+}
+
+/* ==============================================
+   ✅ EXCLUDE HERO BUTTONS FROM GLOBAL OVERRIDE
+   ============================================== */
+button:not(.btn-primary):not(.btn-secondary):not(.a11y-toggle):not(.close-btn):not(.a11y-reset-btn):not(.a11y-close-x),
+.btn {
+  white-space: normal !important;
+  min-height: auto !important;
+  height: auto !important;
+  padding: 0.75rem 1.5rem !important;
+  line-height: 1.4 !important;
+}
+
+nav ul {
+  flex-wrap: wrap;
+}
+
+.card,
+[class*="card"] {
+  min-height: auto !important;
+  height: auto !important;
+}
+
+/* ==============================================
+   TAILWIND COMPONENTS
+   ============================================== */
+@layer components {
+  .btn-primary {
+    @apply bg-luxury-gold text-white px-8 py-4 rounded-lg font-accent font-semibold hover:bg-luxury-gold-light transition-all duration-300 hover:scale-105 shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-luxury-gold text-luxury-gold px-8 py-4 rounded-lg font-accent font-semibold hover:bg-luxury-gold hover:text-white transition-all duration-300 shadow-md;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:scale-105 hover:shadow-2xl;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #E8C547 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-bg {
+    @apply bg-luxury-beige border border-luxury-gold/20;
+  }
+
+  .luxury-shadow {
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F1E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E8C547;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}

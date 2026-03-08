@@ -1,0 +1,334 @@
+/* src/pages/properties-gallery/PropertiesGallery.css */
+
+/* ================= PAGE CONTAINER ================= */
+.properties-gallery-page {
+  min-height: 100vh;
+  background: #FAF8F3; /* Light cream background */
+  padding-bottom: 4rem;
+  padding-top: 0; 
+}
+
+/* ================= FILTER SECTION CONTAINER ================= */
+.filter-section-container {
+  /* MATCHING THE GRID HEADER EXACTLY:
+     The Grid Container is 1600px with 2rem (32px) padding on each side.
+     So the "Content Box" max-width is 1600 - 64 = 1536px.
+  */
+  max-width: 1536px; 
+  
+  /* Match the 2rem padding on both sides (4rem total) */
+  width: calc(100% - 4rem); 
+  
+  margin: -3rem auto 3rem; /* Negative margin pulls it up */
+  position: relative;
+  z-index: 10;
+  background: white;
+  border: 1px solid rgba(212, 175, 55, 0.4); /* Gold border */
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= SEARCH ROW ================= */
+.search-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.search-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  color: #D4AF37;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.875rem 2.5rem 0.875rem 3rem;
+  background: #FAF8F3;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  color: #1A1410;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #D4AF37;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.search-clear-btn:hover {
+  color: #D4AF37;
+}
+
+.filter-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background: white;
+  border: 1px solid #D4AF37;
+  border-radius: 8px;
+  color: #D4AF37;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.filter-toggle-btn:hover,
+.filter-toggle-btn.expanded {
+  background: #D4AF37;
+  color: white;
+}
+
+.toggle-arrow {
+  transition: transform 0.3s ease;
+}
+
+.filter-toggle-btn.expanded .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+/* ================= EXPANDED SECTIONS ================= */
+.filters-expanded-section {
+  overflow: hidden;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  margin-top: 1.5rem;
+}
+
+.active-filters-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.active-filters-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  color: #1A1410;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.filter-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.875rem;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: #1A1410;
+  font-weight: 500;
+}
+
+.filter-pill button {
+  background: none;
+  border: none;
+  color: #D4AF37;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.filter-pill button:hover {
+  color: #b39024;
+}
+
+.clear-all-btn {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid #D4AF37;
+  border-radius: 6px;
+  color: #D4AF37;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-all-btn:hover {
+  background: #D4AF37;
+  color: white;
+}
+
+/* ================= RESULTS INFO ================= */
+.results-info {
+  max-width: 1536px; /* Match filter & grid width */
+  width: calc(100% - 4rem);
+  margin: 0 auto 1.5rem;
+  padding: 0; /* Remove internal padding to align flush left */
+}
+
+.results-info p {
+  color: #6b7280;
+  font-family: 'Inter', sans-serif;
+}
+
+.results-info strong {
+  color: #1A1410;
+  font-family: 'Cinzel', serif;
+}
+
+/* ================= LOAD MORE ================= */
+.load-more-section {
+  max-width: 1400px;
+  margin: 3rem auto 0;
+  text-align: center;
+}
+
+.load-more-btn {
+  padding: 1rem 3rem;
+  /* Gold Gradient Button */
+  background: linear-gradient(135deg, #D4AF37 0%, #E8C547 100%);
+  border: none;
+  border-radius: 8px;
+  color: #1A1410; /* Dark text for contrast on gold */
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.load-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* ================= STATES ================= */
+.spinner {
+  border: 3px solid rgba(212, 175, 55, 0.1);
+  border-top: 3px solid #D4AF37;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #ef4444;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Laptop Alignment (Matches ProjectsGrid 1440px media query) */
+@media (max-width: 1440px) {
+  .filter-section-container {
+    width: calc(100% - 3rem); /* 1.5rem padding x 2 */
+  }
+  
+  .results-info {
+    width: calc(100% - 3rem);
+  }
+}
+
+/* Mobile Alignment (Matches ProjectsGrid 640px media query) */
+@media (max-width: 767px) {
+  .filter-section-container {
+    width: calc(100% - 2rem); /* 1rem padding x 2 */
+    padding: 1.5rem;
+    margin-top: -2rem;
+  }
+  
+  .results-info {
+    width: calc(100% - 2rem);
+  }
+  
+  .search-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-toggle-btn {
+    justify-content: center;
+  }
+  
+  .active-filters-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .clear-all-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
+
+/* ================================================
+   RTL SUPPORT (Hebrew / Arabic)
+   ================================================ */
+
+/* 1. Flip the Search Icon to the Right */
+[dir="rtl"] .search-icon {
+  left: auto;
+  right: 1rem;
+}
+
+/* 2. Flip the Clear (X) Button to the Left */
+[dir="rtl"] .search-clear-btn {
+  right: auto;
+  left: 1rem;
+}
+
+/* 3. Flip the Input Padding 
+   (Give space on the Right for the Icon, and Left for the X button) */
+[dir="rtl"] .search-input {
+  padding: 0.875rem 3rem 0.875rem 2.5rem;
+}
+
+/* 4. Fix the Filter Toggle Button (Optional but recommended) */
+[dir="rtl"] .filter-toggle-btn {
+  flex-direction: row-reverse;
+}

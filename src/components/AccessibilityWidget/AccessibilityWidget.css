@@ -1,0 +1,399 @@
+/* Accessibility Widget Styles */
+
+/* Toggle Button - THE ICON IS THE BUTTON - FORCED SIZING */
+.a11y-toggle {
+    position: fixed !important;
+    bottom: 2rem !important;
+    left: 2rem !important;
+    width: 3.5rem !important;
+    /* Matches WhatsApp Desktop Size */
+    height: 3.5rem !important;
+    border-radius: 50% !important;
+    /* Matches shape area */
+    background: transparent !important;
+    color: #D4AF37 !important;
+    /* Gold wheelchair icon */
+    border: none !important;
+    font-size: 3.5rem !important;
+    cursor: pointer !important;
+    filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.5)) !important;
+    z-index: 9998 !important;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: 3.5rem !important;
+    min-height: 3.5rem !important;
+    max-width: 3.5rem !important;
+    max-height: 3.5rem !important;
+}
+
+.a11y-toggle:hover {
+    transform: scale(1.1) translateY(-5px) !important;
+    /* Matches WhatsApp Animation */
+    filter: drop-shadow(0 6px 15px rgba(212, 175, 55, 0.7)) !important;
+    color: #E8C547 !important;
+    /* Lighter gold on hover */
+}
+
+.a11y-toggle:hover {
+    transform: scale(1.15) !important;
+    filter: drop-shadow(0 6px 15px rgba(212, 175, 55, 0.7)) !important;
+    color: #E8C547 !important;
+    /* Lighter gold on hover */
+}
+
+.a11y-toggle:active {
+    transform: scale(0.95) !important;
+}
+
+/* Backdrop */
+.a11y-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Accessibility Panel */
+.a11y-panel {
+    position: fixed;
+    bottom: 6.5rem;
+    left: 20px;
+    width: 340px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #FAF8F3;
+    border: 2px solid #D4AF37;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+    padding: 1.5rem;
+    z-index: 9999;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+.a11y-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #D4AF37;
+}
+
+.a11y-header h3 {
+    color: #2C2416;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.a11y-close-x {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #D4AF37;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+}
+
+.a11y-close-x:hover {
+    transform: scale(1.2);
+    color: #E8C547;
+}
+
+/* Control Groups */
+.a11y-control {
+    margin-bottom: 1.2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #E8C547;
+}
+
+.a11y-control:last-of-type {
+    border-bottom: none;
+}
+
+/* Labels */
+.a11y-control>label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2C2416;
+    font-size: 0.95rem;
+}
+
+.a11y-icon {
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+/* Select Dropdown */
+.a11y-select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 2px solid #D4AF37;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #2C2416;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.a11y-select:hover {
+    border-color: #E8C547;
+}
+
+.a11y-select:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+/* Checkbox Labels */
+.a11y-checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.a11y-checkbox-label:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Checkboxes */
+.a11y-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #D4AF37;
+}
+
+/* --- Tooltip (Matches WhatsApp Style) --- */
+.a11y-tooltip {
+    position: absolute;
+    left: 4.5rem; /* Push to the right side (Button width + gap) */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    
+    background-color: #1A1410; /* Match WhatsApp Tooltip BG */
+    color: #D4AF37; /* Match WhatsApp Tooltip Text */
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-family: inherit; /* Ensure font matches site */
+    font-weight: normal; /* Reset font weight if button overrides it */
+    line-height: normal;
+}
+
+.a11y-toggle:hover .a11y-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hide Tooltip on Mobile (Matches WhatsApp) */
+@media (max-width: 768px) {
+    .a11y-tooltip {
+        display: none;
+    }
+}
+
+
+/* Footer Buttons */
+.a11y-footer {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid #D4AF37;
+}
+
+.a11y-reset-btn,
+.close-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.a11y-reset-btn {
+    background: white;
+    color: #D4AF37;
+    border: 2px solid #D4AF37;
+}
+
+.a11y-reset-btn:hover {
+    background: #D4AF37;
+    color: white;
+}
+
+.close-btn {
+    background: linear-gradient(135deg, #D4AF37 0%, #E8C547 100%);
+    color: white;
+}
+
+.close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);
+}
+
+/* Scrollbar for panel */
+.a11y-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+.a11y-panel::-webkit-scrollbar-track {
+    background: #F5F1E8;
+    border-radius: 10px;
+}
+
+.a11y-panel::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 10px;
+}
+
+.a11y-panel::-webkit-scrollbar-thumb:hover {
+    background: #E8C547;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .a11y-panel {
+        width: calc(100vw - 3rem);
+        right: 1.5rem;
+        left: 1.5rem;
+        bottom: 5.5rem;
+        /* 1.5rem margin + 3rem button + 1rem gap */
+    }
+
+    .a11y-toggle {
+        bottom: 1.5rem !important;
+        left: 1.5rem !important;
+        width: 3rem !important;
+        /* Matches WhatsApp Mobile Size */
+        height: 3rem !important;
+        min-width: 3rem !important;
+        min-height: 3rem !important;
+        max-width: 3rem !important;
+        max-height: 3rem !important;
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .a11y-panel {
+        width: calc(100vw - 3rem);
+        right: 1.5rem;
+        left: 1.5rem;
+        padding: 1rem;
+        max-height: 70vh;
+        /* Toggle size stays 3rem on small phones too, consistent with WhatsApp */
+    }
+
+    .a11y-toggle {
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px !important;
+        min-height: 50px !important;
+        max-width: 50px !important;
+        max-height: 50px !important;
+        font-size: 50px !important;
+    }
+
+    .a11y-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .a11y-footer {
+        flex-direction: column;
+    }
+}
+
+/* 🆕 LARGE SCREENS - 120px button */
+@media (min-width: 1920px) {
+    .a11y-toggle {
+        width: 3.5rem !important;
+        height: 3.5rem !important;
+        font-size: 3.5rem !important;
+        bottom: 2rem !important;
+        left: 2rem !important;
+    }
+
+    .a11y-panel {
+        bottom: 6.5rem;
+        left: 2rem;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .a11y-toggle {
+    right: auto;
+    left: 20px;
+}
+
+[dir="rtl"] .a11y-panel {
+    right: auto;
+    left: 20px;
+}
+
+[dir="rtl"] .a11y-icon {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+[dir="rtl"] .a11y-checkbox {
+    margin-right: 0;
+    margin-left: 10px;
+}

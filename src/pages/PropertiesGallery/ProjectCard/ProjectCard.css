@@ -1,0 +1,457 @@
+/* src/pages/properties-gallery/components/ProjectCard.css */
+
+/* ================================================
+   PROPERTY ROW - PREMIUM TABLE DESIGN
+   ================================================ */
+.property-row {
+  display: grid;
+  grid-template-columns: 140px 2fr 1.8fr 140px 80px 80px 100px 140px 180px;
+  gap: 2rem;
+  align-items: center;
+
+  padding: 2rem 2.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.property-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #D4AF37, #E8C547);
+  transform: scaleY(0);
+  transition: transform 0.35s ease;
+}
+
+.property-row:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.16);
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+.property-row:hover::before {
+  transform: scaleY(1);
+}
+
+/* ================================================
+   PROPERTY CELLS
+   ================================================ */
+.property-cell {
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  color: #1A1410;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* ================================================
+   IMAGE COLUMN
+   ================================================ */
+.property-image-cell {
+  justify-content: center;
+}
+
+.property-image-container {
+  position: relative;
+  width: 140px;
+  height: 105px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.property-image-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+}
+
+.property-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.property-image-container:hover img {
+  transform: scale(1.1);
+}
+
+.image-count {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgba(26, 20, 16, 0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.image-count svg {
+  color: #D4AF37;
+}
+
+.gallery-card-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 4px 10px;
+  background: linear-gradient(135deg, #D4AF37, #E8C547);
+  color: #1A1410;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+}
+
+/* ================================================
+   TITLE COLUMN
+   ================================================ */
+.property-title-cell {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.property-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1A1410;
+  line-height: 1.4;
+  margin: 0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  width: 100%;
+  word-break: break-word;
+}
+
+/* ================================================
+   LOCATION COLUMN
+   ================================================ */
+.property-location-cell {
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.property-location-cell svg {
+  flex-shrink: 0;
+  color: #D4AF37;
+  opacity: 0.8;
+}
+
+.property-location-cell span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+/* ================================================
+   PRICE COLUMN
+   ================================================ */
+.property-price-cell {
+  justify-content: flex-start;
+}
+
+.property-price {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #D4AF37;
+  white-space: nowrap;
+}
+
+/* ================================================
+   SPECS COLUMNS
+   ================================================ */
+.property-spec-cell {
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1A1410;
+}
+
+/* ================================================
+   TYPE BADGE
+   ================================================ */
+.property-type-cell {
+  justify-content: center;
+}
+
+.property-type-badge {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.property-type-badge.forSale {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+  border: 2px solid rgba(34, 197, 94, 0.3);
+}
+
+.property-type-badge.forRent {
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.property-type-badge.sold {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+  border: 2px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ================================================
+   ACTION BUTTON
+   ================================================ */
+.property-action-cell {
+  justify-content: center;
+}
+
+.property-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #D4AF37, #E8C547);
+  border: none;
+  border-radius: 8px;
+  color: #1A1410;
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
+  white-space: nowrap;
+}
+
+.property-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  background: linear-gradient(135deg, #E8C547, #F5D663);
+}
+
+.property-action-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.property-action-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* ================================================
+   RESPONSIVE - LAPTOP (≤1440px)
+   ================================================ */
+@media (max-width: 1440px) {
+  .property-row {
+    grid-template-columns: 130px 2fr 1.6fr 130px 75px 75px 95px 130px 170px;
+    gap: 1.5rem;
+    padding: 1.75rem 2rem;
+  }
+
+  .property-image-container {
+    width: 130px;
+    height: 98px;
+  }
+
+  .property-title {
+    font-size: 1.1rem;
+  }
+
+  .property-price {
+    font-size: 1rem;
+  }
+}
+
+/* ================================================
+   RESPONSIVE - TABLET (≤1200px)
+   ================================================ */
+@media (max-width: 1200px) {
+  .property-row {
+    grid-template-columns: 120px 2fr 1.5fr 120px 70px 70px 90px 120px 160px;
+    gap: 1.25rem;
+    padding: 1.5rem 1.5rem;
+  }
+
+  .property-image-container {
+    width: 120px;
+    height: 90px;
+  }
+
+  .property-title {
+    font-size: 1rem;
+  }
+
+  .property-location-cell {
+    font-size: 0.875rem;
+  }
+
+  .property-price {
+    font-size: 0.95rem;
+  }
+
+  .property-spec-cell {
+    font-size: 0.9rem;
+  }
+
+  .property-action-btn {
+    padding: 10px 20px;
+    font-size: 0.75rem;
+  }
+}
+
+/* ================================================
+   RESPONSIVE - TABLET SMALL (≤1024px)
+   ================================================ */
+@media (max-width: 1024px) {
+  .property-row {
+    grid-template-columns: 110px 1fr;
+    grid-template-areas:
+      "image title"
+      "image location"
+      "image price"
+      "type action";
+    gap: 1rem 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .property-image-cell {
+    grid-area: image;
+  }
+
+  .property-image-container {
+    width: 110px;
+    height: 140px;
+  }
+
+  .property-title-cell {
+    grid-area: title;
+    align-self: start;
+  }
+
+  .property-title {
+    font-size: 1.15rem;
+  }
+
+  .property-location-cell {
+    grid-area: location;
+    align-self: center;
+  }
+
+  .property-price-cell {
+    grid-area: price;
+    align-self: end;
+  }
+
+  .property-price {
+    font-size: 1.1rem;
+  }
+
+  .property-type-cell {
+    grid-area: type;
+    justify-content: flex-start;
+  }
+
+  .property-action-cell {
+    grid-area: action;
+    justify-content: flex-end;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
+
+/* ================================================
+   RESPONSIVE - MOBILE (≤640px)
+   ================================================ */
+@media (max-width: 640px) {
+  .property-row {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "title"
+      "location"
+      "price"
+      "type"
+      "action";
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .property-image-cell {
+    justify-content: stretch;
+  }
+
+  .property-image-container {
+    width: 100%;
+    height: 220px;
+    max-width: 100%;
+  }
+
+  .property-title {
+    font-size: 1.3rem;
+  }
+
+  .property-location-cell {
+    font-size: 0.95rem;
+  }
+
+  .property-price {
+    font-size: 1.3rem;
+  }
+
+  .property-type-cell {
+    justify-content: flex-start;
+  }
+
+  .property-action-cell {
+    justify-content: stretch;
+  }
+
+  .property-action-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+}

@@ -1,0 +1,271 @@
+/* ReviewTooltip.css - Centered Modal Style */
+
+/* ==============================================
+   BACKDROP OVERLAY
+   ============================================== */
+.review-tooltip-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 1.5rem;
+  animation: overlayFadeIn 0.25s ease-out;
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==============================================
+   TOOLTIP CARD - CENTERED MODAL
+   ============================================== */
+.review-tooltip-card {
+  position: relative;
+  
+  /* Dark background - original styling */
+  background: rgba(26, 20, 16, 0.98);
+  backdrop-filter: blur(8px);
+  
+  /* Sizing */
+  min-width: 320px;
+  max-width: 480px;
+  width: 100%;
+  padding: 2rem;
+  padding-top: 2.5rem;
+  
+  /* Border and shadow - original styling */
+  border: 2px solid #D4AF37;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  
+  /* Animation */
+  animation: cardSlideIn 0.3s ease-out;
+  
+  /* Allow interactions */
+  pointer-events: auto;
+  user-select: text;
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ==============================================
+   CLOSE BUTTON
+   ============================================== */
+.review-tooltip-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+  /* This sets the text color to Gold */
+  color: #D4AF37; 
+  transition: all 0.2s ease;
+  padding: 0;
+
+}
+
+.review-tooltip-close svg {
+  stroke: currentColor;
+  stroke-width: 2.5; /* Optional: makes the X slightly thicker/bolder */
+}
+
+
+.review-tooltip-close:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(224, 175, 14, 0.5);
+}
+
+/* ==============================================
+   HEADER - Stars and Badge (original styling)
+   ============================================== */
+.review-tooltip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.review-tooltip-stars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.review-tooltip-rating {
+  margin-left: 10px;
+  color: #D4AF37;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.review-tooltip-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(212, 175, 55, 0.15);
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: #D4AF37;
+  font-weight: 600;
+}
+
+/* ==============================================
+   FULL REVIEW TEXT (original styling)
+   ============================================== */
+.review-tooltip-text {
+  color: #FAF8F3;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  max-height: 250px;
+  overflow-y: auto;
+  word-break: break-word;
+}
+
+/* Scrollbar for long reviews */
+.review-tooltip-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+.review-tooltip-text::-webkit-scrollbar-track {
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 3px;
+}
+
+.review-tooltip-text::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 3px;
+}
+
+.review-tooltip-text::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.6);
+}
+
+/* ==============================================
+   FOOTER - Author and Location (original styling)
+   ============================================== */
+.review-tooltip-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.review-tooltip-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #C5BDB0;
+  font-size: 0.95rem;
+}
+
+.review-tooltip-info svg {
+  color: #D4AF37;
+  flex-shrink: 0;
+}
+
+.review-tooltip-info span {
+  word-break: break-word;
+}
+
+/* ==============================================
+   RESPONSIVE - TABLET
+   ============================================== */
+@media (max-width: 768px) {
+  .review-tooltip-overlay {
+    padding: 1rem;
+  }
+  
+  .review-tooltip-card {
+    max-width: 420px;
+    padding: 1.5rem;
+    padding-top: 2.25rem;
+  }
+  
+  .review-tooltip-text {
+    font-size: 1.1rem;
+    max-height: 200px;
+  }
+}
+
+/* ==============================================
+   RESPONSIVE - MOBILE
+   ============================================== */
+@media (max-width: 480px) {
+  .review-tooltip-overlay {
+    padding: 0.75rem;
+    align-items: flex-end;
+  }
+  
+  .review-tooltip-card {
+    min-width: unset;
+    max-width: none;
+    width: 100%;
+    padding: 1.25rem;
+    padding-top: 2rem;
+    border-radius: 16px 16px 0 0;
+    margin-bottom: 0;
+    animation: cardSlideUp 0.3s ease-out;
+  }
+  
+  @keyframes cardSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .review-tooltip-text {
+    font-size: 1rem;
+    max-height: 180px;
+    line-height: 1.65;
+  }
+  
+  .review-tooltip-info {
+    font-size: 0.9rem;
+  }
+  
+  .review-tooltip-close {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}

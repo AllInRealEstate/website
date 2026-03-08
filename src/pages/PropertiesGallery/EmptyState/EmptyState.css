@@ -1,0 +1,129 @@
+/* src/pages/properties-gallery/components/EmptyState.css */
+
+.empty-state-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 2rem;
+  width: 100%;
+}
+
+.empty-state-content {
+  background: white;
+  border: 1px solid rgba(212, 175, 55, 0.2); /* Subtle Gold Border */
+  border-radius: 16px;
+  padding: 3rem 4rem;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); /* Soft premium shadow */
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative Gold Top Line */
+.empty-state-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+/* Icon Styling */
+.empty-icon-wrapper {
+  margin-bottom: 2rem;
+  display: inline-block;
+  position: relative;
+}
+
+/* Background glow behind icon */
+.empty-icon-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(10px);
+}
+
+.empty-state-icon {
+  width: 80px;
+  height: 80px;
+  color: #D4AF37; /* Main Gold */
+  position: relative;
+  z-index: 1;
+}
+
+.icon-glass {
+  stroke: #D4AF37;
+  stroke-width: 1.5;
+}
+
+.icon-handle {
+  stroke: #D4AF37;
+}
+
+/* Typography */
+.empty-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1A1410;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.empty-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+/* Action Button */
+.empty-reset-btn {
+  padding: 0.8rem 2.5rem;
+  background: transparent;
+  border: 1px solid #D4AF37;
+  color: #D4AF37;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.empty-reset-btn:hover {
+  background: #D4AF37;
+  color: white;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 640px) {
+  .empty-state-content {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .empty-state-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .empty-title {
+    font-size: 1.5rem;
+  }
+}

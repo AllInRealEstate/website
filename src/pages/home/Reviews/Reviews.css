@@ -1,0 +1,425 @@
+/* ==============================================
+   ELITE REVIEWS SECTION
+   ============================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --rev-bg: #2C2416;
+  --rev-card-bg: #F9F7F2;
+  --rev-gold: #D4AF37;
+  --rev-gold-dim: rgba(212, 175, 55, 0.2);
+  --rev-text-dark: #1A1410;
+  --rev-text-light: #FAF8F3;
+}
+
+.elite-reviews-section {
+  padding: 6rem 0;
+  background-color: var(--rev-bg);
+  position: relative;
+  overflow: visible;
+  font-family: 'Inter', sans-serif;
+}
+
+.elite-reviews-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+/* --- HEADER --- */
+.reviews-header-block {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-main-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3.5rem;
+  color: var(--rev-text-light);
+  margin: 0 0 1rem;
+  font-weight: 400;
+}
+
+.title-separator-gold {
+  width: 80px;
+  height: 3px;
+  background: var(--rev-gold);
+  border-radius: 2px;
+}
+
+/* --- STATS RIBBON --- */
+.stats-glass-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(250, 248, 243, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 100px;
+  padding: 1.5rem 4rem;
+  gap: 4rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.stat-pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-val {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: var(--rev-text-light);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.stat-val.gold-text { color: var(--rev-gold); }
+
+.stat-lbl {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #C5BDB0;
+}
+
+.pillar-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(212, 175, 55, 0.3);
+}
+
+/* ==============================================
+   CAROUSEL WRAPPER - DESKTOP (1024px+)
+   Default: 3 cards × 350px + 2 gaps × 30px = 1110px
+   ============================================== */
+.reviews-slider-wrapper {
+  width: 1110px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* When only 1 review on desktop - center single card */
+.reviews-slider-wrapper.reviews-single {
+  width: 350px;
+}
+
+/* When only 2 reviews on desktop - center 2 cards */
+.reviews-slider-wrapper.reviews-double {
+  width: 730px; /* 2×350 + 1×30 */
+}
+
+/* When exactly 3 reviews on desktop - show all 3 centered */
+.reviews-slider-wrapper.reviews-triple {
+  width: 1110px; /* 3×350 + 2×30 */
+}
+
+/* ==============================================
+   SWIPER CONFIGURATION
+   ============================================== */
+.elite-swiper {
+  width: 100%;
+  padding-bottom: 4rem;
+  overflow: hidden;
+}
+
+/* Swiper wrapper - flex container for slides */
+.elite-swiper .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+/* When loop is disabled and few items, center them */
+.elite-swiper.swiper-initialized .swiper-wrapper {
+  /* Swiper handles this via centeredSlides prop */
+}
+
+/* Individual slide - fixed width card container */
+.elite-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+  flex-shrink: 0;
+}
+
+/* ==============================================
+   REVIEW CARD - FIXED SIZE
+   ============================================== */
+.elite-review-card {
+  background: var(--rev-card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer; /* Changed to pointer for clickable card */
+  overflow: hidden;
+}
+
+.elite-review-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  border-color: var(--rev-gold);
+  z-index: 10;
+}
+
+/* Focus state for accessibility */
+.elite-review-card:focus {
+  outline: none;
+  border-color: var(--rev-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3), 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.bg-quote-icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  opacity: 0.05;
+  color: var(--rev-text-dark);
+  pointer-events: none;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.rating-stars { display: flex; gap: 3px; }
+
+.lang-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #888;
+  background: #e0e0e0;
+  padding: 3px 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-body {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.review-excerpt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--rev-text-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-author-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.author-avatar {
+  width: 45px;
+  height: 45px;
+  background: var(--rev-gold);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+.author-meta { display: flex; flex-direction: column; }
+
+.author-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--rev-text-dark);
+}
+
+.author-loc {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* ==============================================
+   CLICK HINT - Shows on hover
+   ============================================== */
+.card-click-hint {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(212, 175, 55, 0.95), rgba(212, 175, 55, 0.85));
+  color: #1A1410;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 0 0 14px 14px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.elite-review-card:hover .card-click-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==============================================
+   PAGINATION
+   ============================================== */
+.elite-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: #fff !important;
+  opacity: 0.2 !important;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--rev-gold) !important;
+  opacity: 1 !important;
+  transform: scale(1.2);
+}
+
+/* ==============================================
+   CTA BUTTON
+   ============================================== */
+.elite-add-btn {
+  background: transparent;
+  color: var(--rev-gold);
+  border: 1px solid var(--rev-gold);
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.elite-add-btn:hover {
+  background: var(--rev-gold);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ==============================================
+   LOADING & EMPTY STATES
+   ============================================== */
+.loading-spinner { display: flex; justify-content: center; padding: 4rem; }
+.gold-loader { width: 40px; height: 40px; border: 3px solid rgba(212, 175, 55, 0.3); border-top-color: var(--rev-gold); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.empty-state { text-align: center; color: var(--rev-gold); padding: 3rem; }
+
+/* ==============================================
+   RESPONSIVE - MOBILE (<1024px)
+   Show 1 card at a time
+   ============================================== */
+@media (max-width: 1023px) {
+  /* Always show single card width on mobile/tablet */
+  .reviews-slider-wrapper,
+  .reviews-slider-wrapper.reviews-single,
+  .reviews-slider-wrapper.reviews-double,
+  .reviews-slider-wrapper.reviews-triple {
+    width: 350px;
+    max-width: calc(100% - 3rem); /* Account for container padding */
+  }
+  
+  .section-main-title { font-size: 2.5rem; }
+  .stats-glass-ribbon { padding: 1.5rem 2rem; gap: 2rem; }
+  .pillar-divider { display: block; }
+  
+  /* Always show click hint on mobile */
+  .card-click-hint {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================================
+   RESPONSIVE - SMALL MOBILE (<400px)
+   Adjust card width for very small screens
+   ============================================== */
+@media (max-width: 400px) {
+  .reviews-slider-wrapper,
+  .reviews-slider-wrapper.reviews-single,
+  .reviews-slider-wrapper.reviews-double,
+  .reviews-slider-wrapper.reviews-triple {
+    width: 100%;
+    max-width: calc(100% - 2rem);
+  }
+  
+  .elite-review-card {
+    padding: 1.5rem;
+    min-height: 280px;
+  }
+  
+  .review-excerpt {
+    font-size: 1.1rem;
+  }
+  
+  .card-click-hint {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* ==============================================
+   RESPONSIVE - MOBILE STATS RIBBON
+   ============================================== */
+@media (max-width: 767px) {
+  .elite-reviews-section { padding: 4rem 0; }
+  
+  .stats-glass-ribbon { 
+    flex-direction: column; 
+    gap: 1.5rem; 
+    border-radius: 20px; 
+    padding: 2rem;
+    width: 100%;
+    max-width: 350px; /* Match card width for consistency */
+  }
+  .pillar-divider { width: 40px; height: 1px; }
+  .stat-val { font-size: 2rem; }
+}

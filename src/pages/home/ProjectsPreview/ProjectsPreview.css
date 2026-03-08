@@ -1,0 +1,425 @@
+/* Portfolio Section - DARK THEME */
+.portfolio-section {
+  padding: 5rem 0;
+  background-color: #2C2416;
+  /* Dark brown background */
+}
+
+.portfolio-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.portfolio-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: #FAF8F3;
+  /* Cream text */
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .portfolio-title {
+    font-size: 3.75rem;
+  }
+}
+
+.portfolio-divider {
+  width: 6rem;
+  height: 0.25rem;
+  background-color: #D4AF37;
+  /* Gold */
+  margin: 0 auto;
+  border-radius: 9999px;
+}
+
+
+
+/* Filter Tabs Container */
+.portfolio-filters {
+  display: flex;
+  flex-wrap: nowrap; /* Default: single line */
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  width: 100%;
+}
+
+/* Mobile Dropdown - Hidden by default, shown in accessibility mode on mobile */
+.mobile-filter-select {
+  display: none;
+  width: 100%;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: #D4AF37;
+  background-color: transparent;
+  border: 2px solid #D4AF37;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23D4AF37%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.75rem auto;
+}
+
+/* Filter Buttons - ✅ FIXED: Equal width for all buttons */
+.filter-button {
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  background: transparent;
+  border: 2px solid #D4AF37;
+  cursor: pointer;
+  color: #D4AF37;
+  position: relative;
+  z-index: 1;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: 140px; /* ✅ FIXED WIDTH - all buttons same size */
+  min-width: 140px; /* ✅ Ensure consistency */
+  white-space: nowrap;
+  text-align: center; /* ✅ Center text */
+}
+
+/* MOBILE: Smaller buttons */
+@media (max-width: 640px) {
+  .filter-button {
+    font-size: 0.75rem;
+    padding: 0.625rem 1rem;
+    width: 110px; /* ✅ Smaller fixed width for mobile */
+    min-width: 110px;
+  }
+}
+
+.filter-button:hover {
+  color: #E8C547;
+  /* Light gold on hover */
+  border-color: #E8C547;
+}
+
+.filter-button.active {
+  color: #2C2416;
+  /* Dark brown text when active */
+  border-color: #D4AF37;
+}
+
+.filter-active-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #D4AF37;
+  /* Gold background */
+  border-radius: 0.375rem;
+  z-index: -1;
+}
+
+/* Property Carousel */
+.portfolio-carousel {
+  position: relative;
+}
+
+.properties-swiper {
+  padding-bottom: 3rem;
+}
+
+/* Swiper Navigation Buttons */
+.properties-swiper :global(.swiper-button-next),
+.properties-swiper :global(.swiper-button-prev) {
+  color: #D4AF37;
+  /* Gold arrows */
+  background: rgba(250, 248, 243, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.properties-swiper :global(.swiper-button-next):hover,
+.properties-swiper :global(.swiper-button-prev):hover {
+  background: rgba(212, 175, 55, 0.2);
+}
+
+.properties-swiper :global(.swiper-button-next::after),
+.properties-swiper :global(.swiper-button-prev::after) {
+  font-size: 20px;
+}
+
+/* MOBILE: Hide navigation arrows on small screens */
+@media (max-width: 640px) {
+
+  .properties-swiper :global(.swiper-button-next),
+  .properties-swiper :global(.swiper-button-prev) {
+    display: none;
+  }
+}
+
+/* Swiper Pagination */
+.properties-swiper :global(.swiper-pagination-bullet) {
+  background: #C5BDB0;
+  opacity: 0.5;
+  width: 12px;
+  height: 12px;
+}
+
+.properties-swiper :global(.swiper-pagination-bullet-active-gold) {
+  background: #D4AF37;
+  /* Gold active bullet */
+  opacity: 1;
+}
+
+/* 1. ADD THIS NEW RULE TO FORCE EQUAL HEIGHTS */
+.properties-swiper .swiper-slide {
+  height: auto;       /* Let Swiper calculate height based on tallest item */
+  display: flex;      /* Make slide a flex container */
+  align-items: stretch; /* Force children to stretch to full height */
+}
+
+/* 2. UPDATE THE CARD TO FILL THE SLIDE */
+.property-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background-color: #FAF8F3;
+  cursor: pointer;
+  
+  /* ← CHANGED: Use 100% to fill the stretched slide */
+  height: 100%;       
+  min-height: 460px;  /* Keep a minimum to ensure good proportions */
+  /* max-height: 460px;  ← REMOVE THIS (allows card to grow if title is long) */
+  
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  width: 100%; /* Ensure width is stable */
+}
+.property-card:hover {
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Image Container */
+.property-image-wrapper {
+  position: relative;
+  height: 220px;
+  height: 16rem;
+  overflow: hidden;
+}
+
+.property-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Badge */
+.property-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #D4AF37;
+  /* Gold badge */
+  color: white;
+  /* White text on gold */
+  padding: 0.25rem 1rem;
+  border-radius: 0.375rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Overlay */
+.property-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.property-view-btn {
+  background-color: #D4AF37;
+  /* Gold button */
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.property-view-btn:hover {
+  background-color: #E8C547;
+  /* Light gold on hover */
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Property Info - BRIGHT BACKGROUND WITH DARK TEXT */
+.property-info {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #FAF8F3;
+  /* BRIGHT CREAM BACKGROUND */
+}
+
+.property-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: #1A1410;
+  /* DARK BROWN TEXT - HIGHLY VISIBLE */
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* 👈 max 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3rem;
+  /* 👈 same block height for all */
+
+}
+
+.property-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #3D3026;
+  /* DARK BROWN TEXT - VISIBLE */
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  min-height: 1.25rem;
+}
+
+.location-icon {
+  width: 1rem;
+  height: 1rem;
+  color: #D4AF37;
+  /* Gold icon */
+}
+
+.property-price {
+  font-family: 'Cinzel', serif;
+  color: #D4AF37;
+  /* Gold price */
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: auto;
+}
+
+/* Optional: Add subtle border to cards */
+.property-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.property-card:hover::before {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .property-image-wrapper {
+    height: 12rem;
+  }
+
+  .portfolio-title {
+    font-size: 2.25rem;
+  }
+
+  .property-title {
+    font-size: 1.125rem;
+  }
+
+  .property-price {
+    font-size: 1rem;
+  }
+}
+
+/* View All Button */
+.view-all-projects-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #D4AF37 0%, #E8C547 100%);
+  color: #1A1410;
+  border: none;
+  border-radius: 0.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.view-all-projects-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+}
+
+.view-all-projects-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.view-all-projects-btn:hover svg {
+  transform: translateX(5px);
+}
+
+/* TABLET: slightly shorter cards */
+@media (max-width: 1024px) {
+  .property-card {
+    height: 430px;
+    max-height: 430px;
+  }
+
+  .property-image-wrapper {
+    height: 200px;
+  }
+}
+
+/* MOBILE: compact but still equal */
+@media (max-width: 640px) {
+  .property-card {
+    height: 380px;
+    max-height: 380px;
+  }
+
+  .property-image-wrapper {
+    height: 180px;
+  }
+}
